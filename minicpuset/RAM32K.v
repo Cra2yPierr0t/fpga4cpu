@@ -14,4 +14,11 @@ module RAM32K(clock,in,load,address,out);
             out <= mem[address];
         end
     end
+
+    integer i;
+    initial begin
+        for(i=0;i<32768;i++)
+            mem[i] = 16'b0000000000000000;
+    end
+
 endmodule
