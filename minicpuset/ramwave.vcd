@@ -1,0 +1,84 @@
+$date
+	Tue May 21 21:13:40 2019
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1s
+$end
+$scope module RAMtest $end
+$scope module RAM32K $end
+$var wire 15 ! address [14:0] $end
+$var wire 1 " clock $end
+$var wire 16 # in [15:0] $end
+$var wire 1 $ load $end
+$var reg 16 % out [15:0] $end
+$var integer 32 & i [31:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+b1000000000000000 &
+bx %
+0$
+b0 #
+0"
+b0 !
+$end
+#1
+b100000100100 %
+1"
+#2
+0"
+#3
+1"
+#4
+0"
+#5
+1"
+b1011010101010101 #
+1$
+b111000000 !
+#6
+0"
+#7
+1"
+b0 !
+0$
+b0 #
+#8
+0"
+#9
+1"
+#10
+0"
+#11
+1"
+#12
+0"
+#13
+b1011010101010101 %
+1"
+b111000000 !
+#14
+0"
+#15
+1"
+#16
+0"
+#17
+1"
+#18
+0"
+#19
+1"
+#20
+0"
+#21
+1"
+#22
+0"
+#23
+1"

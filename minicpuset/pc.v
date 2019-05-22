@@ -6,6 +6,9 @@ module pc(in,inc,load,reset,out,clock);
 
     reg [15:0] out;
 
+    initial begin
+        out = 16'b0000000000000000;
+    end
 
     always@(posedge clock) begin
         if(reset) begin

@@ -7,7 +7,7 @@ module Register(clock,in,load,out);
     reg [15:0] out;
 
     always @(posedge clock) begin
-            if(load) begin
+            if(load == 1'b1) begin
                     out <= in;
             end else begin
                     out <= out;

@@ -6,18 +6,18 @@ module miniCPU(inM,instruction,reset,outM,writeM,addressM,pc_,clock);
     output [14:0] addressM,pc_;
 
     wire h,o,j,n,i,e,p,q,k,l,u,v,m,w,s;
-    wire [15:0] a,f,b1,c,pc_buf,f;
+    wire [15:0] a,f,b1,g,c,pc_buf;
 
     assign h = instruction[15] & instruction[4];
     assign o = instruction[15] & instruction[5];
     assign j = instruction[15] & instruction[12];
     assign n = ~instruction[15];
     assign i = o | n;
-    Mux16 Mux16(f,instruction,n,a);
+    Mux16 Mux160(f,instruction,n,a);
     Register ARegister(clock,a,i,b1);
     assign addressM = b1[14:0];
-    Mux16 Mux16(b1,inM,j,c);
-    pc pc(b1,inc,reset,e,pc_buf);
+    Mux16 Mux161(b1,inM,j,c);
+    pc pc(b1,1'b1,e,reset,pc_buf,clock);
     assign pc_ = pc_buf[14:0];
     Register DRegister(clock,f,h,g);
     ALU ALU(g,c,instruction[11],instruction[10],instruction[9],instruction[8],instruction[7],instruction[6],outM,p,q);
