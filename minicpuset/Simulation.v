@@ -19,7 +19,7 @@ module Simulation();
     end
 
     initial begin
-        #100
+        #500
         $finish;
     end
 endmodule
