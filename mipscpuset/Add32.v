@@ -1,0 +1,41 @@
+module Add32(X,Y,out,carry);
+    input [31:0] X,Y;
+    output [31:0] out;
+    output carry;
+
+    wire carry0,carry1,carry2,carry3,carry4,carry5,carry6,carry7,carry8,carry9,carry10,carry11,carry12,carry13,carry14,carry15,carry16,carry17,carry18,carry19;
+    wire carry20,carry21,carry22,carry23,carry24,carry25,carry26,carry27,carry28,carry29,carry30;
+
+    HalfAdder HalfAdder(X[0],Y[0],out[0],carry0);
+    FullAdder FullAdder1(X[1],Y[1],carry0,out[1],carry1);
+    FullAdder FullAdder2(X[2],Y[2],carry1,out[2],carry2);
+    FullAdder FullAdder3(X[3],Y[3],carry2,out[3],carry3);
+    FullAdder FullAdder4(X[4],Y[4],carry3,out[4],carry4);
+    FullAdder FullAdder5(X[5],Y[5],carry4,out[5],carry5);
+    FullAdder FullAdder6(X[6],Y[6],carry5,out[6],carry6);
+    FullAdder FullAdder7(X[7],Y[7],carry6,out[7],carry7);
+    FullAdder FullAdder8(X[8],Y[8],carry7,out[8],carry8);
+    FullAdder FullAdder9(X[9],Y[9],carry8,out[9],carry9);
+    FullAdder FullAdder10(X[10],Y[10],carry9,out[10],carry10);
+    FullAdder FullAdder11(X[11],Y[11],carry10,out[11],carry11);
+    FullAdder FullAdder12(X[12],Y[12],carry11,out[12],carry12);
+    FullAdder FullAdder13(X[13],Y[13],carry12,out[13],carry13);
+    FullAdder FullAdder14(X[14],Y[14],carry13,out[14],carry14);
+    FullAdder FullAdder15(X[15],Y[15],carry14,out[15],carry15);
+    FullAdder FullAdder16(X[16],Y[16],carry15,out[16],carry16);
+    FullAdder FullAdder17(X[17],Y[17],carry16,out[17],carry17);
+    FullAdder FullAdder18(X[18],Y[18],carry17,out[18],carry18);
+    FullAdder FullAdder19(X[19],Y[19],carry18,out[19],carry19);
+    FullAdder FullAdder20(X[20],Y[20],carry19,out[20],carry20);
+    FullAdder FullAdder21(X[21],Y[21],carry20,out[21],carry21);
+    FullAdder FullAdder22(X[22],Y[22],carry21,out[22],carry22);
+    FullAdder FullAdder23(X[23],Y[23],carry22,out[23],carry23);
+    FullAdder FullAdder24(X[24],Y[24],carry23,out[24],carry24);
+    FullAdder FullAdder25(X[25],Y[25],carry24,out[25],carry25);
+    FullAdder FullAdder26(X[26],Y[26],carry25,out[26],carry26);
+    FullAdder FullAdder27(X[27],Y[27],carry26,out[27],carry27);
+    FullAdder FullAdder28(X[28],Y[28],carry27,out[28],carry28);
+    FullAdder FullAdder29(X[29],Y[29],carry28,out[29],carry29);
+    FullAdder FullAdder30(X[30],Y[30],carry29,out[30],carry30);
+    FullAdder FullAdder31(X[31],Y[31],carry30,out[31],carry);
+endmodule
