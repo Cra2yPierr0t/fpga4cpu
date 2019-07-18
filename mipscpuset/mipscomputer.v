@@ -6,21 +6,24 @@ module mipscomputer(reset);
     wire [31:0] SrcA;
     wire [4:0] WriteReg;
     wire [31:0] ALUResult;
-    wire [31:0] pc_in, pc_out, pc_puls4, pcBranch;
-    wire [31:0] instruction, ALUresult;
+    wire [31:0] pc_in, pc_out, pc_puls4, pcBranch, pc_in_pre;
+    wire [31:0] instruction, ALUresult, PCjump_pre, PCjump;
     wire [31:0] ReadData, WriteData, Result;
 
-    wire RegDst, RegWrite, ALUSrc, MemtoReg, Zero, Branch, PCSrc;
+    wire RegDst, RegWrite, ALUSrc, MemtoReg, Zero, Branch, PCSrc, jump;
     wire [2:0] ALUControl;
     
     pc(pc_in, pc_out, reset, clock);
     assign pc_puls4 = pc_out + 4;
-    assign pc_in = (PCSrc) ? pcBranch : pc_puls4;
+    assign pc_in_pre = (PCSrc) ? pcBranch : pc_puls4;
+    assign pc_in = (jump) ? PCjump : pc_in_pre;
 
     ROM(pc_out, instruction);
 
     SignExtender(instruction[15:0], SignImm);
     assign SignImm_shifted = (SignImm << 2);
+    assign PCjump_pre = (instrction << 2);
+    assign PCjump = { pc_plus4[31:28], PCjump_pre[27:0] }
     assign pcBranch = pc_puls4 + SignImm_shifted;
 
     Regfile(instruction[25:21], instruction[20:16], WriteReg, Result, WriteData, SrcA, RegWrite,clock);
