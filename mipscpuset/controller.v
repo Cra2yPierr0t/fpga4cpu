@@ -1,4 +1,4 @@
-module controller(op,funct,zero,memtoreg,memwrite,pcsrc,alusrc,regdst,regwrite,jump,alucontrol);
+module controller(op, funct, zero, memtoreg, memwrite, pcsrc, alusrc, regdst, regwrite, jump, alucontrol);
     input [5:0] op, funct;
     input zero;
     output memtoreg;
