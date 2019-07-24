@@ -1,9 +1,9 @@
-module DMux32(in,sel,zero_laod,at_load,v0_load,v1_load,a0_load,a1_load,a2_load,a3_load,t0_load,t1_load,t2_load,t3_load,t4_load,t5_load,t6_load,t7_load,s0_load,s1_load,s2_load,s3_load,s4_load,s5_load,s6_load.s7_load,t8_load,t9_load,k0_load,k1_load,gp_load,sp_load,fp_laod,ra_load);
+module DMux32(in,sel,zero_load,at_load,v0_load,v1_load,a0_load,a1_load,a2_load,a3_load,t0_load,t1_load,t2_load,t3_load,t4_load,t5_load,t6_load,t7_load,s0_load,s1_load,s2_load,s3_load,s4_load,s5_load,s6_load,s7_load,t8_load,t9_load,k0_load,k1_load,gp_load,sp_load,fp_laod,ra_load);
 
 
 input in;
 input [4:0] sel;
-output zero_laod,at_load,v0_load,v1_load,a0_load,a1_load,a2_load,a3_load,t0_load,t1_load,t2_load,t3_load,t4_load,t5_load,t6_load,t7_load,s0_load,s1_load,s2_load,s3_load,s4_load,s5_load,s6_load.s7_load,t8_load,t9_load,k0_load,k1_load,gp_load,sp_load,fp_laod,ra_load;
+output zero_load,at_load,v0_load,v1_load,a0_load,a1_load,a2_load,a3_load,t0_load,t1_load,t2_load,t3_load,t4_load,t5_load,t6_load,t7_load,s0_load,s1_load,s2_load,s3_load,s4_load,s5_load,s6_load,s7_load,t8_load,t9_load,k0_load,k1_load,gp_load,sp_load,fp_laod,ra_load;
 
 assign zero_load = (sel == 5'b00000) ? in : 1'b0;
 assign at_load = (sel == 5'b00001) ? in : 1'b0;

@@ -1,6 +1,6 @@
 module pc(in,out,reset,clock);
     input [31:0] in;
-    input reset,clcok;
+    input reset,clock;
     output [31:0] out;
 
     reg [31:0] out;

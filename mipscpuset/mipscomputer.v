@@ -1,9 +1,9 @@
-module mipscomputer(reset);
-    input reset;
+module mipscomputer(clock, reset);
+    input reset, clock;
 
     wire clock;
     wire [31:0] SignImm, SignImm_shifted;
-    wire [31:0] SrcA;
+    wire [31:0] SrcA, SrcB;
     wire [4:0] WriteReg;
     wire [31:0] ALUResult;
     wire [31:0] pc_in, pc_out, pc_puls4, pcBranch, pc_in_pre;
@@ -24,12 +24,12 @@ module mipscomputer(reset);
 
     SignExtender SignExtender(instruction[15:0], SignImm);
     assign SignImm_shifted = (SignImm << 2);
-    assign PCjump_pre = (instrction << 2);
-    assign PCjump = { pc_plus4[31:28], PCjump_pre[27:0] }
+    assign PCjump_pre = (instruction << 2);
+    assign PCjump = { pc_plus4[31:28], PCjump_pre[27:0] };
     assign pcBranch = pc_puls4 + SignImm_shifted;
 
-    Regfile Regfile(instruction[25:21], instruction[20:16], WriteReg, Result, WriteData, SrcA, RegWrite,clock);
-    assign WriteReg = (RegDst) ? instrction[15:11] : instruction[20:16];
+    Regfile Regfile(instruction[25:21], instruction[20:16], WriteReg, Result, RegWrite, SrcA, WriteData,clock,reset);
+    assign WriteReg = (RegDst) ? instruction[15:11] : instruction[20:16];
 
     mipsALU mipsALU(SrcA, SrcB, ALUControl, ALUResult, Zero);
     assign SrcB = (ALUSrc) ? SignImm : RegWrite;
@@ -37,13 +37,5 @@ module mipscomputer(reset);
 
     RAM RAM(ALUResult, WriteData, MemWrite, ReadData, clock);
     assign Result = (MemtoReg) ? ReadData : ALUResult;
-
-    initial begin
-        clock = 1'b0;
-    end
-
-    always #1 begin
-        clock <= ~clock;
-    end
 
 endmodule

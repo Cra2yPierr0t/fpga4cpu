@@ -19,13 +19,13 @@ module maindec(op, memtoreg, memwrite, branch, alusrc, regdst, regwrite, jump, a
     function [8:0] decode(input [5:0] op);
     begin
         case(op)
-        6'b000000: decode <= 9'b110000010;
-        6'b100011: decode <= 9'b101001000;
-        6'b101011: decode <= 9'b001010000;
-        6'b000100: decode <= 9'b000100001;
-        6'b001000: decode <= 9'b101000000;
-        6'b000010: decode <= 9'b000000100;
-        default:   decode <= 9'bxxxxxxxxx;
+        6'b000000: decode = 9'b110000010;
+        6'b100011: decode = 9'b101001000;
+        6'b101011: decode = 9'b001010000;
+        6'b000100: decode = 9'b000100001;
+        6'b001000: decode = 9'b101000000;
+        6'b000010: decode = 9'b000000100;
+        default:   decode = 9'bxxxxxxxxx;
         endcase
     end
     endfunction
