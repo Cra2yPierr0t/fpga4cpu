@@ -25,7 +25,7 @@ module mipscomputer(clock, reset);
     SignExtender SignExtender(instruction[15:0], SignImm);
     assign SignImm_shifted = (SignImm << 2);
     assign PCjump_pre = (instruction << 2);
-    assign PCjump = { pc_plus4[31:28], PCjump_pre[27:0] };
+    assign PCjump = { pc_puls4[31:28], PCjump_pre[27:0] };
     assign pcBranch = pc_puls4 + SignImm_shifted;
 
     Regfile Regfile(instruction[25:21], instruction[20:16], WriteReg, Result, RegWrite, SrcA, WriteData,clock,reset);
