@@ -9,7 +9,7 @@ module pc(in,out,reset,clock);
         if(reset) begin
             out <= 32'b00000000000000000000000000000000;
         end else begin
-            out <= out + 1'b1;
+            out <= in;
         end
     end
 endmodule

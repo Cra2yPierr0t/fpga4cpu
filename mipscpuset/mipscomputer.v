@@ -16,7 +16,7 @@ module mipscomputer(clock, reset);
     controller controller(instruction[31:26], instruction[5:0], Zero, MemtoReg, MemWrite, PCSrc, ALUSrc, RegDst, RegWrite, jump, ALUControl);
 
     pc pc(pc_in, pc_out, reset, clock);
-    assign pc_puls4 = pc_out + 4;
+    assign pc_puls4 = pc_out + 1'b1;
     assign pc_in_pre = (PCSrc) ? pcBranch : pc_puls4;
     assign pc_in = (jump) ? PCjump : pc_in_pre;
 
