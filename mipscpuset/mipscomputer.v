@@ -32,7 +32,7 @@ module mipscomputer(clock, reset);
     assign WriteReg = (RegDst) ? instruction[15:11] : instruction[20:16];
 
     mipsALU mipsALU(SrcA, SrcB, ALUControl, ALUResult, Zero);
-    assign SrcB = (ALUSrc) ? SignImm : RegWrite;
+    assign SrcB = (ALUSrc) ? SignImm : WriteData;
     assign PCSrc = Branch & Zero;
 
     RAM RAM(ALUResult, WriteData, MemWrite, ReadData, clock);

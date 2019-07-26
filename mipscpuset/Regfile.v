@@ -6,7 +6,7 @@ module Regfile(a1_in,a2_in,a3_in,wd3,we3,rd1,rd2,clock,reset);
     wire zero_load,at_load,v0_load,v1_load,a0_load,a1_load,a2_load,a3_load,t0_load,t1_load,t2_load,t3_load,t4_load,t5_load,t6_load,t7_load,s0_load,s1_load,s2_load,s3_load,s4_load,s5_load,s6_load,s7_load,t8_load,t9_load,k0_load,k1_load,gp_load,sp_load,fp_load,ra_load;
     wire [31:0] zero_out,at_out,v0_out,v1_out,a0_out,a1_out,a2_out,a3_out,t0_out,t1_out,t2_out,t3_out,t4_out,t5_out,t6_out,t7_out,s0_out,s1_out,s2_out,s3_out,s4_out,s5_out,s6_out,s7_out,t8_out,t9_out,k0_out,k1_out,gp_out,sp_out,fp_out,ra_out;
 
-    DMux32 DMux32(we3,a3_in,zero_laod,at_load,v0_load,v1_load,a0_load,a1_load,a2_load,a3_load,t0_load,t1_load,t2_load,t3_load,t4_load,t5_load,t6_load,t7_load,s0_load,s1_load,s2_load,s3_load,s4_load,s5_load,s6_load,s7_load,t8_load,t9_load,k0_load,k1_load,gp_load,sp_load,fp_load,ra_load); 
+    DMux32 DMux32(we3,a3_in,zero_load,at_load,v0_load,v1_load,a0_load,a1_load,a2_load,a3_load,t0_load,t1_load,t2_load,t3_load,t4_load,t5_load,t6_load,t7_load,s0_load,s1_load,s2_load,s3_load,s4_load,s5_load,s6_load,s7_load,t8_load,t9_load,k0_load,k1_load,gp_load,sp_load,fp_load,ra_load); 
 
     Register zero(wd3,zero_load,zero_out,clock,reset);
     Register at(wd3,at_load,at_out,clock,reset);

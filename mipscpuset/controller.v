@@ -13,7 +13,7 @@ module controller(op, funct, zero, memtoreg, memwrite, pcsrc, alusrc, regdst, re
     wire [1:0] aluop;
     wire branch;
 
-    maindec maindec(op, memtoreg, memtowrite, pcsrc, alusrc, regdst, regwrite, jump, aluop);
+    maindec maindec(op, memtoreg, memwrite, pcsrc, alusrc, regdst, regwrite, jump, aluop);
     aludec aludec(funct, aluop, alucontrol);
 
     assign pcsrc = branch & zero;

@@ -17,5 +17,7 @@ module RAM(address,writedata,load,out,clock);
     initial begin
         for(i=0;i<1000;i=i+1)
             mem[i] = 32'b00000000000000000000000000000000;
+
+        mem[0] = 32'b00011110111101111011110111101111;
     end
 endmodule

@@ -6,10 +6,10 @@ module Register(in,load,out,clock,reset);
     reg [31:0] out;
     
     always@(posedge clock) begin
-        if(load)begin
-            out <= in;
-        end else if(reset)begin
+        if(reset)begin
             out <= 32'b00000000000000000000000000000000;
+        end else if(load)begin
+            out <= in;
         end else begin
             out <= out;
         end
